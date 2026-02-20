@@ -1,0 +1,24 @@
+[package]
+name = "audiobass"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gstreamer = "=0.21"
+gstreamer-audio = "=0.21"
+eframe = "=0.33.3"
+serde_json = "=1.0"
+rfd = "=0.14"
+serde = { version = "=1.0", features = ["derive"] }
+image = { version = "=0.24", default-features = false, features = ["png"] }
+
+
+[package.metadata.generate-rpm]
+summary = "Central Player Pro - The ultimate Linux music experience"
+license = "MIT"
+
+# חשוב: שים לב לשם של הקובץ כאן! 
+# תחליף את "central_player" בשם האמיתי של הפרויקט שלך (איך שקראת לו למעלה תחת [package] name)
+assets = [
+    { source = "target/release/audiobass", dest = "/usr/bin/audiobass", mode = "755" }
+]
